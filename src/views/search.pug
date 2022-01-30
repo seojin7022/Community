@@ -1,0 +1,12 @@
+extends base 
+include mixins/posting
+
+block content 
+    form(method="GET") 
+        input(type="text", name="title", placeholder="게시물 제목을 적어주세요")
+        input(type="submit", value="검색")
+    
+    each posting in postings
+        +Posting(posting)
+    else 
+        h3 검색한 결과가 없습니다.

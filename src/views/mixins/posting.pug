@@ -1,0 +1,25 @@
+mixin Posting(item)
+    
+    h4
+        a(href=`/postings/${item.id}`)=item.title
+
+    small=`${item.author} | `
+
+    if Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24 * 7 * 4)) >= 12
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24 * 7 * 4 * 12))}년전`
+    else if Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24 * 7)) >= 4
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24 * 7 * 4))}개월전`
+    else if Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24)) >= 7
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24 * 7))}주전`
+    else if Math.floor((Date.now() - item.date) / (1000 * 60 * 60)) >= 24
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60 * 60 * 24))}일전`
+    else if Math.floor((Date.now() - item.date) / (1000 * 60)) >= 60
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60 * 60))}시간전`
+    else if Math.floor((Date.now() - item.date) / 1000) >= 60
+        small=`${Math.floor((Date.now() - item.date) / (1000 * 60))}분전`
+    else
+        small=`${Math.floor((Date.now() - item.date) / (1000))}초전` 
+
+    small=` | ${item.meta.view} 조회수`
+    hr
+        

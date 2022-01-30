@@ -1,0 +1,7 @@
+extends base 
+
+block content 
+    form(method="POST") 
+        input(type="text", required, placeholder="제목을 적어주세요", minLength=2, name="title")
+        input(type="text", required, placeholder="내용을 적어주세요", minLength=2, name="content")
+        input(type="submit", value="업로드")

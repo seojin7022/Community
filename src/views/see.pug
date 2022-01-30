@@ -1,0 +1,15 @@
+extends base 
+
+
+block content 
+
+    h3=posting.title
+    p=posting.content
+    hr
+    small=`${posting.meta.view} 조회수`
+    br
+    if loggedIn
+        if posting.author == user.username 
+            a(href=`/postings/${posting.id}/delete`) DELETE ➡
+        
+    

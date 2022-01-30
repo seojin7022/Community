@@ -1,0 +1,9 @@
+extends base
+include ./mixins/posting
+
+block content 
+    each posting in postings
+        +Posting(posting)
+    else 
+        h3 글이 아직 없습니다. 
+        h3 첫번째 글을 업로드 해보세요!
