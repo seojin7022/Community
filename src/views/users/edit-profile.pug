@@ -1,0 +1,10 @@
+extends ../base
+
+block content 
+    form(method="POST") 
+        input(type="text", required, name="username", placeholder="이름", value=user.username)
+        input(type="email", required, name="email", placeholder="이메일", value=user.email)
+        input(type="submit", value="프로필 수정")
+        if !user.socialOnly
+            hr
+            a(href="edit/password") Change Password &rarr;

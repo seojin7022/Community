@@ -4,7 +4,7 @@ import User from "../Models/User"
 
 export const home = async (req, res) => {
     const postings = await Posting.find({});
-    return res.render("home", {pageTitle: "HOME", postings});
+    return res.render("home", {pageTitle: "홈", postings});
 };
 
 export const see = async (req, res) => {
@@ -14,7 +14,7 @@ export const see = async (req, res) => {
     if (posting) {
         
         await Posting.findByIdAndUpdate(id, { meta: { view: posting.meta.view + 1 } });
-        return res.render("see", { pageTitle: "See", posting});
+        return res.render("see", { pageTitle: "게시물 보기", posting});
     } else {
         return res.render("404", { pageTitle: "삭제됐거나 없는 글 입니다."});
     }
